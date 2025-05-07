@@ -1,0 +1,20 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--background);
+  padding: 8px;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 768px) {
+  .pagination {
+    padding: 16px;
+    padding-top: 48px;
+  }
+}
