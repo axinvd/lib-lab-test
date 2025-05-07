@@ -26,7 +26,7 @@ export default async function Characters({
       <Header title="Characters">
         <h2>Search</h2>
         <form>
-          <input type="text" name="name" />
+          <input type="text" name="name" defaultValue={name} />
           <button type="submit">Search</button>
         </form>
       </Header>
