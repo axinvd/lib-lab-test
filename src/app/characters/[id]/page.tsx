@@ -22,7 +22,6 @@ export default async function Character({
   return (
     <>
       <Header title={character.name}>
-        <h1>{character.name}</h1>
         {quotesResponse.status === 200 &&
           quotesResponse.data.docs.length > 0 && (
             <Link href={`/characters/${id}/quotes`}>View Character Quotes</Link>
@@ -66,12 +65,14 @@ export default async function Character({
               <strong>Spouse:</strong> {character.spouse}
             </li>
           )}
-          <li>
-            <strong>Wiki URL:</strong>{" "}
-            <Link href={character.wikiUrl} target="_blank">
-              link
-            </Link>
-          </li>
+          {character.wikiUrl && (
+            <li>
+              <strong>Wiki URL:</strong>{" "}
+              <Link href={character.wikiUrl} target="_blank">
+                link
+              </Link>
+            </li>
+          )}
         </ul>
       </main>
     </>

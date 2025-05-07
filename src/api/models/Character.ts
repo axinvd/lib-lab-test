@@ -9,5 +9,5 @@ export type Character = {
   height: string | null;
   realm: string | null;
   spouse: string | null;
-  wikiUrl: string;
+  wikiUrl: string | null;
 };

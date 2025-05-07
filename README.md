@@ -20,3 +20,8 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+
+## Live demo
+
+[https://lib-lab-test.vercel.app](https://lib-lab-test.vercel.app)
+
