@@ -1,8 +1,8 @@
 export type Character = {
   _id: string;
   name: string;
-  race: string;
-  gender: string;
+  race: string | null;
+  gender: string | null;
   birth: string | null;
   death: string | null;
   hair: string | null;

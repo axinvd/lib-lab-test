@@ -29,12 +29,16 @@ export default async function Character({
       </Header>
       <main className={styles.main}>
         <ul>
-          <li>
-            <strong>Race:</strong> {character.race}
-          </li>
-          <li>
-            <strong>Gender:</strong> {character.gender}
-          </li>
+          {character.race && (
+            <li>
+              <strong>Race:</strong> {character.race}
+            </li>
+          )}
+          {character.gender && (
+            <li>
+              <strong>Gender:</strong> {character.gender}
+            </li>
+          )}
           {character.birth && (
             <li>
               <strong>Birth:</strong> {character.birth}
