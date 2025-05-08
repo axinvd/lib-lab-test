@@ -25,7 +25,11 @@ export default async function Quotes({
       <main className={styles.main}>
         <ul>{renderLinkItem(quotes.docs, "/quotes")}</ul>
       </main>
-      <Pagination page={page} totalPages={quotes.pages} url="/quotes" />
+      <Pagination
+        page={page}
+        totalPages={quotes.pages}
+        searchParams={searchParams}
+      />
     </>
   );
 }

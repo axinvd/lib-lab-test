@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import { api } from "@/api/api";
 import Link from "next/link";
 import { Header } from "@/shared/components/header/header";
+import { renderItem } from "@/shared/helpers/renderItem";
+import { omit } from "lodash";
 
 export default async function Character({
   params,
@@ -29,46 +31,7 @@ export default async function Character({
       </Header>
       <main className={styles.main}>
         <ul>
-          {character.race && (
-            <li>
-              <strong>Race:</strong> {character.race}
-            </li>
-          )}
-          {character.gender && (
-            <li>
-              <strong>Gender:</strong> {character.gender}
-            </li>
-          )}
-          {character.birth && (
-            <li>
-              <strong>Birth:</strong> {character.birth}
-            </li>
-          )}
-          {character.death && (
-            <li>
-              <strong>Death:</strong> {character.death}
-            </li>
-          )}
-          {character.hair && (
-            <li>
-              <strong>Hair:</strong> {character.hair}
-            </li>
-          )}
-          {character.height && (
-            <li>
-              <strong>Height:</strong> {character.height}
-            </li>
-          )}
-          {character.realm && (
-            <li>
-              <strong>Realm:</strong> {character.realm}
-            </li>
-          )}
-          {character.spouse && (
-            <li>
-              <strong>Spouse:</strong> {character.spouse}
-            </li>
-          )}
+          {renderItem(omit(character, ["_id", "name", "wikiUrl"]))}
           {character.wikiUrl && (
             <li>
               <strong>Wiki URL:</strong>{" "}

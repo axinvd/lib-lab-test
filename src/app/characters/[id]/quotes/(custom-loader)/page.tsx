@@ -36,7 +36,7 @@ export default async function CharacterQuotes({
       <Pagination
         page={page}
         totalPages={quotes.pages}
-        url={`/characters/${id}/quotes`}
+        searchParams={searchParams}
       />
     </>
   );

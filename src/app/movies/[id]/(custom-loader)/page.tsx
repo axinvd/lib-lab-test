@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import { api } from "@/api/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/shared/components/header/header";
+import { renderItem } from "@/shared/helpers/renderItem";
+import { omit } from "lodash";
 
 export default async function Movie({
   params,
@@ -28,26 +30,7 @@ export default async function Movie({
           )}
       </Header>
       <main className={styles.main}>
-        <ul>
-          <li>
-            <strong>Academy Award Nominations:</strong>{" "}
-            {movie.academyAwardNominations}
-          </li>
-          <li>
-            <strong>Academy Award Wins:</strong> {movie.academyAwardWins}
-          </li>
-          <li>
-            <strong>Box Office Revenue in Millions:</strong>{" "}
-            {movie.boxOfficeRevenueInMillions}
-          </li>
-          <li>
-            <strong>Budget in Millions:</strong> {movie.budgetInMillions}
-          </li>
-          <li>
-            <strong>Rotten Tomatoes Score:</strong>{" "}
-            {Math.round(movie.rottenTomatoesScore)}
-          </li>
-        </ul>
+        {renderItem(omit(movie, ["_id", "name"]))}
       </main>
     </>
   );

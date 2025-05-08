@@ -25,7 +25,11 @@ export default async function Movies({
       <main className={styles.main}>
         <ul>{renderLinkItem(movies.docs, "/movies")}</ul>
       </main>
-      <Pagination page={page} totalPages={movies.pages} url="/movies" />
+      <Pagination
+        page={page}
+        totalPages={movies.pages}
+        searchParams={searchParams}
+      />
     </>
   );
 }

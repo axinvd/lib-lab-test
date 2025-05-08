@@ -36,7 +36,7 @@ export default async function MovieQuotes({
       <Pagination
         page={page}
         totalPages={quotes.pages}
-        url={`/movies/${id}/quotes`}
+        searchParams={searchParams}
       />
     </>
   );

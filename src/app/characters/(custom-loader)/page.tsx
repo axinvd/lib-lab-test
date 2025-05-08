@@ -33,7 +33,11 @@ export default async function Characters({
       <main className={styles.main}>
         <ul>{renderLinkItem(characters.docs, "/characters")}</ul>
       </main>
-      <Pagination page={page} totalPages={characters.pages} url="/characters" />
+      <Pagination
+        page={page}
+        totalPages={characters.pages}
+        searchParams={searchParams}
+      />
     </>
   );
 }
