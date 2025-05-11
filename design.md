@@ -51,3 +51,9 @@ src/
 - CSS Modules for local component styles.
 - Global styles in `globals.css`.
 
+# Testing
+  - Test files using `.test.ts` or `.test.tsx` suffixes, e.g.:
+    - `header.test.tsx`
+    - `api.test.ts`
+  - use `__tests__/` folder.
+

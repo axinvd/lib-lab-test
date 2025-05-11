@@ -2,7 +2,7 @@ import { Header } from "@/shared/components/header/header";
 import { api } from "@/api/api";
 import { Pagination } from "@/shared/components/pagination/pagination";
 import { notFound } from "next/navigation";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import { Card } from "@/shared/components/card/card";
 
 export default async function Quotes({

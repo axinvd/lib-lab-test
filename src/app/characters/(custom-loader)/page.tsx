@@ -2,7 +2,7 @@ import { api } from "@/api/api";
 import { Card } from "@/shared/components/card/card";
 import { Header } from "@/shared/components/header/header";
 import { Pagination } from "@/shared/components/pagination/pagination";
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 import { notFound } from "next/navigation";
 import { Search } from "./components/search";
 

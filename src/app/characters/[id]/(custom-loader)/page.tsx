@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { api } from "@/api/api";
-import Link from "next/link";
 import { Header } from "@/shared/components/header/header";
 import { Stack } from "@mui/material";
 import { CharacterCard } from "./components/characterCard";
