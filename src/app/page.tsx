@@ -1,20 +1,44 @@
 import Link from "next/link";
-import styles from "./page.module.css";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import MuiLink from "@mui/material/Link";
+import AppBar from "@mui/material/AppBar";
+import { Stack, Toolbar } from "@mui/material";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <ul>
-        <li>
-          <Link href="/movies">Movies</Link>
-        </li>
-        <li>
-          <Link href="/characters">Characters</Link>
-        </li>
-        <li>
-          <Link href="/quotes">Quotes</Link>
-        </li>
-      </ul>
+    <main>
+      <AppBar position="static">
+        <Toolbar>
+          <h1>Lord of the Rings</h1>
+        </Toolbar>
+      </AppBar>
+      <Stack padding={2} alignItems="center">
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton component={Link} href="/movies">
+              <MuiLink component="span" underline="none">
+                Movies
+              </MuiLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component={Link} href="/characters">
+              <MuiLink component="span" underline="none">
+                Characters
+              </MuiLink>
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton component={Link} href="/quotes">
+              <MuiLink component="span" underline="none">
+                Quotes
+              </MuiLink>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Stack>
     </main>
   );
 }

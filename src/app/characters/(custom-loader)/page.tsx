@@ -1,9 +1,10 @@
 import { api } from "@/api/api";
-import { Pagination } from "@/shared/components/pagination/pagination";
-import { renderLinkItem } from "@/shared/helpers/renderLinkItem";
-import { notFound } from "next/navigation";
-import styles from "./page.module.css";
+import { Card } from "@/shared/components/card/card";
 import { Header } from "@/shared/components/header/header";
+import { Pagination } from "@/shared/components/pagination/pagination";
+import { Box, Stack } from "@mui/material";
+import { notFound } from "next/navigation";
+import { Search } from "./components/search";
 
 export default async function Characters({
   searchParams,
@@ -24,20 +25,19 @@ export default async function Characters({
   return (
     <>
       <Header title="Characters">
-        <h2>Search</h2>
-        <form>
-          <input type="text" name="name" defaultValue={name} />
-          <button type="submit">Search</button>
-        </form>
+        <Search name={name ?? ""} />
       </Header>
-      <main className={styles.main}>
-        <ul>{renderLinkItem(characters.docs, "/characters")}</ul>
-      </main>
-      <Pagination
-        page={page}
-        totalPages={characters.pages}
-        searchParams={searchParams}
-      />
+      <Box display="flex" flexWrap="wrap" gap={2} padding={2}>
+        {characters.docs.map((character) => (
+          <Card
+            key={character._id}
+            id={character._id}
+            text={character.name}
+            url="/characters"
+          />
+        ))}
+      </Box>
+      <Pagination page={page} totalPages={characters.pages} />
     </>
   );
 }

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import styles from "./page.module.css";
 import { api } from "@/api/api";
 import { notFound } from "next/navigation";
 import { Header } from "@/shared/components/header/header";
+import { Stack } from "@mui/material";
 
 export default async function Quote({
   params,
@@ -25,14 +25,11 @@ export default async function Quote({
   return (
     <>
       <Header title={quote.dialog} />
-      <main className={styles.main}>
+      <Stack padding={2} alignItems="center">
         <ul>
           {movieResponse.status === 200 && (
             <li>
-              <strong>Movie:</strong>{" "}
-              <Link href={`/movies/${quote.movie}`}>
-                {movieResponse.data.name}
-              </Link>
+              <strong>Movie:</strong> {movieResponse.data.name}
             </li>
           )}
           {characterResponse.status === 200 && (
@@ -44,7 +41,7 @@ export default async function Quote({
             </li>
           )}
         </ul>
-      </main>
+      </Stack>
     </>
   );
 }

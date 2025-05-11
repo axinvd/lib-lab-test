@@ -1,10 +1,9 @@
 import { notFound } from "next/navigation";
-import styles from "./page.module.css";
 import { api } from "@/api/api";
 import Link from "next/link";
 import { Header } from "@/shared/components/header/header";
-import { renderItem } from "@/shared/helpers/renderItem";
-import { omit } from "lodash";
+import { Stack } from "@mui/material";
+import { CharacterCard } from "./components/characterCard";
 
 export default async function Character({
   params,
@@ -23,25 +22,18 @@ export default async function Character({
 
   return (
     <>
-      <Header title={character.name}>
-        {quotesResponse.status === 200 &&
-          quotesResponse.data.docs.length > 0 && (
-            <Link href={`/characters/${id}/quotes`}>View Character Quotes</Link>
-          )}
-      </Header>
-      <main className={styles.main}>
+      <Header title={character.name} />
+      <Stack padding={2} alignItems="center">
         <ul>
-          {renderItem(omit(character, ["_id", "name", "wikiUrl"]))}
-          {character.wikiUrl && (
-            <li>
-              <strong>Wiki URL:</strong>{" "}
-              <Link href={character.wikiUrl} target="_blank">
-                link
-              </Link>
-            </li>
-          )}
+          <CharacterCard
+            character={character}
+            isHasQuotes={
+              quotesResponse.status === 200 &&
+              quotesResponse.data.docs.length > 0
+            }
+          />
         </ul>
-      </main>
+      </Stack>
     </>
   );
 }
